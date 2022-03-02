@@ -1,15 +1,8 @@
-# Basic Sample Hardhat Project
+# Coinflip using Hardhat
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project was made using hardhat, contrary to what was mentioned in the assignment due to an unsolved set up error for harmony with ganache
 
-Try running some of the following tasks:
+Contract address : 0x77567d6732883d3b11f30226f003cd09a56be241
+Contract creator address : 0x2a5ea309b56c58d65688e6a807bdf2fbfd8374c0
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+Harmony testnet block explorer link : https://explorer.pops.one/address/0x77567d6732883d3b11f30226f003cd09a56be241?activeTab=7
