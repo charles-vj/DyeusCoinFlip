@@ -31,20 +31,20 @@ contract Coinflip {
 
     address[] bettors;
 
-    function bet(address _addr, uint _amount,uint _choice) external {
+    function bet(uint _amount,uint _choice) external {
         
-        require(_choice==1 || addressToUser[_addr].bet==2,"Invalid bet");
-        if(addressToUser[_addr].bet==0) // bet = 0 will be the case when user hasn't participated in any previous bets
-            addressToUser[_addr].balance=100;
-        require(addressToUser[_addr].bet==0 || addressToUser[_addr].bet==3,"User already participated");
-        require(addressToUser[_addr].balance>_amount,"Not enough funds");
-        addressToUser[_addr].balance-=_amount;
-        addressToUser[_addr].amount=_amount;
+        require(_choice==1 || _choice==2,"Invalid bet");
+        if(addressToUser[msg.sender].bet==0) // bet = 0 will be the case when user hasn't participated in any previous bets
+            addressToUser[msg.sender].balance=100;
+        require(addressToUser[msg.sender].bet==0 || addressToUser[msg.sender].bet==3,"User already participated");
+        require(addressToUser[msg.sender].balance>_amount,"Not enough funds");
+        addressToUser[msg.sender].balance-=_amount;
+        addressToUser[msg.sender].amount=_amount;
         if(_choice==1)
-            addressToUser[_addr].bet = 1; //heads
+            addressToUser[msg.sender].bet = 1; //heads
         else
-            addressToUser[_addr].bet = 2; //tails
-        bettors.push(_addr);
+            addressToUser[msg.sender].bet = 2; //tails
+        bettors.push(msg.sender);
     }
 
     function numberOfBettors() view public returns(uint){
@@ -75,9 +75,9 @@ contract Coinflip {
         for(uint i=0;i<bettors.length;i++){
             if((rand%2)+1==addressToUser[bettors[i]].bet){
                 addressToUser[bettors[i]].balance+=2*addressToUser[bettors[i]].amount;
-                addressToUser[bettors[i]].bet=3; // bet = 3 will be the case when user has participated 
                 addressToUser[bettors[i]].amount=0;
             }
+            addressToUser[bettors[i]].bet=3; // bet = 3 will be the case when user has participated             
         }
         for(uint i=0;i<bettors.length;i++){
             bettors.pop();

@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\User\\Desktop\\Projects\\DyeusCoinFlip\\contracts\\Coinflip.sol": {
-      "lastModificationDate": 1646254905195,
-      "contentHash": "b466d71a2a25c42082d763a4d431d5c9",
+      "lastModificationDate": 1646256683970,
+      "contentHash": "10340cf02fe3cd8fbf76dbe24c67f6d4",
       "sourceName": "contracts/Coinflip.sol",
       "solcConfig": {
         "version": "0.8.10",
